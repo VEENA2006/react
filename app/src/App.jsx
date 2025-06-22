@@ -1,4 +1,4 @@
-import { useState } from 'react'
+/*import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -33,3 +33,93 @@ function App() {
 }
 
 export default App
+
+
+function App(){
+  let userList = [
+    {name:"siva" ,age:25}, 
+    {name:"jack" ,age:15}]
+  return (
+    <ul>
+      {
+      userList.map((items,index)=>{
+      return <li key = {index}>
+        {items.name},{items.age}
+      </li>
+      })
+    }
+    </ul>
+  )
+}
+export default App;
+*/
+
+/*import {useState} from "react";
+function App(){
+  let [count,setcount] = useState(0)
+  return (
+    <div>
+      <button onClick={()=>setcount(count+1)}>
+        click
+      </button>
+      <h1>
+        {count}
+      </h1>
+    </div>
+  )
+}
+export default App
+
+
+import {useState} from 'react'
+function App(){
+  let [userList,setUserList] = useState([])
+  let [user] = useState({name:'',email:'',password:''});
+  return (
+    <>
+    <form onSubmit={(e)=>{
+      e.preventDefault()
+      setUserList([...userList,{...user}]);
+    }}>
+      <input type="text" placeholder="name" onChange={(e)=>{
+        user.name=e.target.value;}}/>
+        <input type="text" placeholder="email" onChange={(e)=>{
+          user.email=e.target.value;}
+        }/>
+        <button type="submit">Submit</button>
+    </form>
+    <div>
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        {
+          userList.map((user,index)=>(
+            <tr key={index}>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+            </tr>
+          ))
+        }
+      </table>
+    </div>
+    </>
+  )
+}
+export default App
+*/
+
+import ListUser from "../ListUser.jsx";
+
+function App(){
+  return (
+    <ListUser/>
+  )
+}
+
+export default App
+
+
