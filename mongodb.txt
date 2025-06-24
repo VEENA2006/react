@@ -1,0 +1,302 @@
+use KEC
+switched to db KEC
+db.createCollection("user")
+{ ok: 1 }
+db.insertOne({
+name: "veena",
+email: "veena@gmail.com",
+age: "19",
+dept: "EIE",
+})
+TypeError: db.insertOne is not a function
+ 
+db.user.insertOne({})
+{
+  acknowledged: true,
+  insertedId: ObjectId('685a26c49e7b0c13c1d243d7')
+}
+db.user.insertOne({
+name: "veena",
+email: "veena@gmail.com",
+age: "19",
+dept: "EIE",
+})
+{
+  acknowledged: true,
+  insertedId: ObjectId('685a275a9e7b0c13c1d243d8')
+}
+db.user.insertMany({
+name: "rithu",
+email: "rithu@gmail.com",
+age: "19",
+dept: "EIE",
+})
+MongoInvalidArgumentError: Argument "docs" must be an array of documents
+db.user.insertMany([
+name: "rithu",
+email: "rithu@gmail.com",
+age: "19",
+dept: "EIE",
+])
+SyntaxError: Unexpected token, expected "," (2:4)
+
+[0m [90m 1 |[39m db[33m.[39muser[33m.[39minsertMany([
+[31m[1m>[22m[39m[90m 2 |[39m name[33m:[39m [32m"rithu"[39m[33m,[39m
+ [90m   |[39m     [31m[1m^[22m[39m
+ [90m 3 |[39m email[33m:[39m [32m"rithu@gmail.com"[39m[33m,[39m
+ [90m 4 |[39m age[33m:[39m [32m"19"[39m[33m,[39m
+ [90m 5 |[39m dept[33m:[39m [32m"EIE"[39m[33m,[39m[0m
+db.user.insertMany([{
+name: "rithu",
+email: "rithu@gmail.com",
+age: "19",
+dept: "EIE",
+}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('685a2d0a9e7b0c13c1d243d9')
+  }
+}
+db.user.insertMany([{
+name:"Suhi",email:"suhi@gmail.com",age:"19"},
+{name:"A",email:"a@gmail.com",age:"17"},
+{name:"B",email:"b@gmail.com",age:"18"},{
+name:"C",email:"c@gmail.com",age:"19"},{
+name:"D",email:"d@gmail.com",age:"20"},{
+name:"E",email:"e@gmail.com",age:"21"},{
+name:"F",email:"f@gmail.com",age:"22"},{
+name:"G",email:"g@gmail.com",age:"23"},{
+name:"X",email:"x@gmail.com",age:"24"},{
+name:"Y",email:"y@gmail.com",age:"25"},{
+name:"Z",email:"z@gmail.com",age:"26"}
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('685a36489e7b0c13c1d243da'),
+    '1': ObjectId('685a36489e7b0c13c1d243db'),
+    '2': ObjectId('685a36489e7b0c13c1d243dc'),
+    '3': ObjectId('685a36489e7b0c13c1d243dd'),
+    '4': ObjectId('685a36489e7b0c13c1d243de'),
+    '5': ObjectId('685a36489e7b0c13c1d243df'),
+    '6': ObjectId('685a36489e7b0c13c1d243e0'),
+    '7': ObjectId('685a36489e7b0c13c1d243e1'),
+    '8': ObjectId('685a36489e7b0c13c1d243e2'),
+    '9': ObjectId('685a36489e7b0c13c1d243e3'),
+    '10': ObjectId('685a36489e7b0c13c1d243e4')
+  }
+}
+db.user.find()
+{
+  _id: ObjectId('685a26c49e7b0c13c1d243d7')
+}
+{
+  _id: ObjectId('685a275a9e7b0c13c1d243d8'),
+  name: 'veena',
+  email: 'veena@gmail.com',
+  age: '19',
+  dept: 'EIE'
+}
+{
+  _id: ObjectId('685a2d0a9e7b0c13c1d243d9'),
+  name: 'rithu',
+  email: 'rithu@gmail.com',
+  age: '19',
+  dept: 'EIE'
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243da'),
+  name: 'Suhi',
+  email: 'suhi@gmail.com',
+  age: '19'
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243db'),
+  name: 'A',
+  email: 'a@gmail.com',
+  age: '17'
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243dc'),
+  name: 'B',
+  email: 'b@gmail.com',
+  age: '18'
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243dd'),
+  name: 'C',
+  email: 'c@gmail.com',
+  age: '19'
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243de'),
+  name: 'D',
+  email: 'd@gmail.com',
+  age: '20'
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243df'),
+  name: 'E',
+  email: 'e@gmail.com',
+  age: '21'
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243e0'),
+  name: 'F',
+  email: 'f@gmail.com',
+  age: '22'
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243e1'),
+  name: 'G',
+  email: 'g@gmail.com',
+  age: '23'
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243e2'),
+  name: 'X',
+  email: 'x@gmail.com',
+  age: '24'
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243e3'),
+  name: 'Y',
+  email: 'y@gmail.com',
+  age: '25'
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243e4'),
+  name: 'Z',
+  email: 'z@gmail.com',
+  age: '26'
+}
+db.user.findOne()
+{
+  _id: ObjectId('685a26c49e7b0c13c1d243d7')
+}
+db.user.find({name: "Y"})
+{
+  _id: ObjectId('685a36489e7b0c13c1d243e3'),
+  name: 'Y',
+  email: 'y@gmail.com',
+  age: '25'
+}
+db.user.updateOne({name:"F"},{$set:{age:27}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.user.updateMany({},{$set:{phone:" "}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 14,
+  modifiedCount: 14,
+  upsertedCount: 0
+}
+db.user.findMany()
+TypeError: db.user.findMany is not a function
+db.user.find()
+{
+  _id: ObjectId('685a26c49e7b0c13c1d243d7'),
+  phone: ' '
+}
+{
+  _id: ObjectId('685a275a9e7b0c13c1d243d8'),
+  name: 'veena',
+  email: 'veena@gmail.com',
+  age: '19',
+  dept: 'EIE',
+  phone: ' '
+}
+{
+  _id: ObjectId('685a2d0a9e7b0c13c1d243d9'),
+  name: 'rithu',
+  email: 'rithu@gmail.com',
+  age: '19',
+  dept: 'EIE',
+  phone: ' '
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243da'),
+  name: 'Suhi',
+  email: 'suhi@gmail.com',
+  age: '19',
+  phone: ' '
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243db'),
+  name: 'A',
+  email: 'a@gmail.com',
+  age: '17',
+  phone: ' '
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243dc'),
+  name: 'B',
+  email: 'b@gmail.com',
+  age: '18',
+  phone: ' '
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243dd'),
+  name: 'C',
+  email: 'c@gmail.com',
+  age: '19',
+  phone: ' '
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243de'),
+  name: 'D',
+  email: 'd@gmail.com',
+  age: '20',
+  phone: ' '
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243df'),
+  name: 'E',
+  email: 'e@gmail.com',
+  age: '21',
+  phone: ' '
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243e0'),
+  name: 'F',
+  email: 'f@gmail.com',
+  age: 27,
+  phone: ' '
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243e1'),
+  name: 'G',
+  email: 'g@gmail.com',
+  age: '23',
+  phone: ' '
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243e2'),
+  name: 'X',
+  email: 'x@gmail.com',
+  age: '24',
+  phone: ' '
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243e3'),
+  name: 'Y',
+  email: 'y@gmail.com',
+  age: '25',
+  phone: ' '
+}
+{
+  _id: ObjectId('685a36489e7b0c13c1d243e4'),
+  name: 'Z',
+  email: 'z@gmail.com',
+  age: '26',
+  phone: ' '
+}
+KEC
+  
